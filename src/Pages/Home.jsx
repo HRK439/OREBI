@@ -6,14 +6,14 @@ import { useState } from "react";
 const Home = () => {
     let [menu,setMenu] =useState(false)
     return (
-        <section className="pt-[20px]">
+        <section className="py-[20px]">
             <Container>
                 <div className="lg:flex justify-between items-center">
-                    <div className="w-1/12">
+                    <div className="w-2/12">
                         <img src={logo} alt="" />
                     </div>
-                    <div className="w-8/12  ">
-                        <ul className="lg:flex gap-3 font-dm text-[14px] text-[#767676] mx-auto">
+                    <div className="w-8/12">
+                        <ul className={`lg:flex gap-3 font-dm text-[14px] sm:w-full text-[#767676] mx-auto ${menu == true ? " h-[0px] opacity-0"  : " h-[100px] opacity-100 duration-300" }`} >
                             <li className="hover:font-bold hover:text-[#262626] lg:w-[80px] duration-200">Home</li>
                             <li className="hover:font-bold hover:text-[#262626] lg:w-[80px] duration-200">Shop</li>
                             <li className="hover:font-bold hover:text-[#262626] lg:w-[80px] duration-200">About</li>
@@ -21,7 +21,7 @@ const Home = () => {
                             <li className="hover:font-bold hover:text-[#262626] lg:w-[80px] duration-200">Journal</li>
                         </ul>
                     </div>
-                    <div className="w-1/12 lg:hidden" onClick={()=>setMenu(!menu)}>
+                    <div className="w-1/12 lg:hidden absolute top-0 right-0 pt-[20px]" onClick={()=>setMenu(!menu)}>
                     {menu   
                     ?
                     <GiCrossMark />
